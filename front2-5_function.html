@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 일반 함수
+        function add(a,b){return a+b}
+        // add (15, 10)
+        const sum = add(15, 10)
+        console.log(sum)
+
+        // 2-1. 화살표 함수(1)
+        const add1 = (a,b)=>{return a+b} 
+        // 변수명을 함수명으로 선언한다.
+        // 공식을 세우는 방식이 차이가 나고, 호출하는 방식은 같다.
+        const sum1 = add1(11, 10)
+        console.log(sum1)
+
+        // 2-2. 화살표 함수(2)
+        // 변수명을 함수명으로 선언하고, parameter 인자를 넣고 화살표로 return을 생략한 반환값을 넣는다.
+        const add2 = (a,b) => a+b
+        const sum2 = add2(3, 10)
+        console.log(sum2)
+
+        // 예제
+        /*
+        - function double (n){return n*2} 을 화살표 함수로 표현
+        - alert으로 출력, 값은 3
+        */
+        const double = (n) => n*2
+        const result = double(4)
+        alert(result)
+        
+        // let double = (n) => {retutn n*2} 와 같다.
+    </script>
+</body>
+</html>

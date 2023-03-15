@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script>
+        var member = ['egoing', 'k9112', 'sorialgi']
+        // 배열 array 안에 들어있는 것을 원소 element라고 한다.
+        // 각 element는 고유한 값 색인 index를 갖고 순서는 0부터 시작한다.
+        alert(member[0]);
+        /*
+        array syntax
+        코드명(원소[색인]);
+        code(element[0]);
+        */
+
+        function get_members(){
+            return ['egoing', 'k9112', 'sorialgi'];
+        }
+        // 하나의 함수에 여러개의 값을 담기 위해서는 배열을 담는다.
+        var members = get_members();
+        document.write (members[0].toUpperCase());
+        // .toUpperCase() alert() prompt() 와 같이 javascript에 이미 내장되어있는 함수를 '내장함수'라고 하고, 직접 정의하는 함수는 '사용자 정의함수' 라고 한다.
+        // .toUpperCase()은 원시값 string 을 대문자로 바꿔준다.
+
+    </script>
+</body>
+</html>

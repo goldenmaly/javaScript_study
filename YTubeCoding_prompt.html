@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>변수와 비교연산자</title>
+    </head>
+    <body>
+        <h1 style="text-align:center; margin:0;">
+            변수와 비교연산자
+        </h1>
+        <h2 style="text-align:center; margin:0;">
+            prompt
+        </h2>
+        <p id="num" class="numspace" style="text-align:center; font-weight:500;">
+        </p>
+        <script>
+            /*
+            var id = prompt('아이디를 입력해주세요.'); 
+            if(id == 'mado'){
+                var password = prompt(' 비밀번호를 입력해주세요.');
+                if(password == '111'){
+                    alert('로그인이 완료되었습니다. '+id+'님 반갑습니다.');
+                } else {
+                    alert('비밀번호가 틀립니다.');
+                }
+                // alert('아이디가 일치 합니다.');
+            } else {
+                alert('아이디가 일치하지 않습니다.');
+            }
+
+            var num = prompt('숫자를 입력해주세요.');
+            if(num>20){
+                document.write('<p>20이상의 숫자를 입력했습니다.</p>');
+            } else {
+                alert('20이상의 수를 입력하세요.');
+            }
+            */
+            /*
+            let inputNumber = prompt('숫자를 입력하세요.')
+            if(inputNumber%5===0){
+                alert(`${inputNumber} 는 5의 배수입니다.`);
+            } else {
+                alert(`${inputNumber} 는 5의 배수가 아닙니다.`);
+            }
+            */
+            let inputNum = prompt('30이상의 숫자를 입력하세요.')
+            let inputNum2 = prompt ('30이상의 숫자를 입력하세요.')
+            if(inputNum>=30 && inputNum2>=30){
+                document.getElementById("num").innerHTML = "조건에 맞습니다."
+            } else {
+                document.getElementById("num").innerHTML = "조건에 맞지 않습니다."
+            }
+        </script>
+    </body>
+</html>

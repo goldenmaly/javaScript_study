@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name : `Risa`,
+            age : 30,
+            hobby : [`camping`, `coding`, `drawing`],
+            greeting : function(){
+                alert(`Hello, I'm ${this.name}`)
+                // this 는 유효범위 scope 을 호출한 function 을 의미한다.
+            },
+            skill : { java : 'beginer', ps : 'good', design : 'exerent'}
+        }
+        console.log(person.greeting())
+        person.greeting() //객체내 method 메서드 호출
+        console.log(person)
+        console.log(person.name)
+        console.log(person.age)
+        console.log(person.hobby)
+        console.log(person.hobby[0])
+        console.log(person.skill)
+        console.log(person.skill.ps)
+        console.log(person['skill']['java'])
+        console.log(person[personSkill][personDesign])
+
+        person.name = `Mike`
+        // property 속성을 호출해서 value를 직접 수정할 수 있다.
+        console.log(person.name)
+        
+        
+    </script>
+</body>
+</html>

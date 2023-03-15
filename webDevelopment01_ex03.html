@@ -1,0 +1,23 @@
+								
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="urf-8">
+        <title>연습</title>
+    </head>
+    <body>
+       <script>
+            window.addEventListener("DOMContentLoaded",function(){
+                const button = document.getElementById("butto")
+                button.addEventListener("click", function(){
+                    alert("click1");
+                })
+
+                button.addEventListener("click", function(){
+                    alert("click2");
+                })
+            })
+       </script> 
+       <button type="button" id="button">click</button>
+    </body>
+</html>

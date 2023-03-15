@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        // object syntax
+        let person = {};
+        person['age'] = 12; 
+        person['name'] = 'risa';
+        console.log(person)
+
+        let personA = { 'age' : 19, 'name' : 'gray'}
+        console.log(personA)
+
+        alert(person['age']);
+        // key 값을 호출할 때 문자값으로 호출한다. 따라서 'a'+'ge'로도 호출이 가능하다.
+        alert(personA.age);
+        // key 값을 호출할 때 프로퍼티로 호출한다.
+    </script>
+</body>
+</html>

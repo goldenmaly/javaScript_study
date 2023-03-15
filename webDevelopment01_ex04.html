@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box {
+            padding: 100px;
+        }
+        .box-1 {
+            background : gold;
+        }
+        .box-2 {
+            background : red;
+        }
+        .box-3 {
+            background : blue;
+        }
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded", function(){
+            const box1 = document.querySelector(".box-1");
+            const box2 = document.querySelector(".box-2");
+            const box3 = document.querySelector(".box-3");
+            box1.addEventListener("click", function(){
+                console.log("box1");
+            });
+            box2.addEventListener("click", function(){
+                console.log("box2");
+            });
+            box3.addEventListener("click", function(event){
+                console.log(event);
+                console.log("target", event.target)
+                console.log("currentTarget", event.currentTarget)
+                event.stopPropagation(); // 이벤트 전파 중지
+                console.log("box3");
+            }); 
+            
+
+
+
+            // box3부터 클릭하면 찾아야하기 때문에 찾는 과정을 캡쳐링단계라고함. 이벤트가 발생했을 때 트리구조이기 때문에 위에서부터 찾기 때문. 찾는단계를 캡쳐링단계라고함. 찾았을 때 자체를 타겟단계라고함. 찾고나서 다시 돌아가는 단계를 버블링단계라고함. 단, 돌아가는 과정 중에 이벤트가 계속 실행됌. 이것을 이벤트 전파라고함.
+        });
+    </script>
+    <div class="box box-1">
+        <div class="box box-2">
+            <div class="box box-3"></div>
+        </div>
+    </div>
+</body>
+</html>

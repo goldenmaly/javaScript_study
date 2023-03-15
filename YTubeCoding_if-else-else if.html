@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>조건문</title>
+    </head>
+    <body>
+        <script>
+            /*
+            conditional syntax
+            if(boolean) {
+                실행할 코드;
+            }
+            */
+            if(true){
+                alert('result : true');
+            }
+            /*
+                : 조건문이 true이기 때문에 {} block scope 안에 선언된 코드 alert('result : ture'); 가 출력된다.
+            */
+            if(false){
+                alert(1);
+            }
+            alert(2);
+            /*
+                : if문이 false이기 때문에 {} 밖에 선언된 alert(2);가 출력된다.
+            */
+            if(false) {
+                alert(1);
+            } else {
+                alert(9);
+            }
+            /*
+                : 최초 선언된 if문이 false이기 때문에 else의 block scope 지역범위 안에 선언된 alert(9);가 출력된다.
+            */
+            if(false) {
+                alert(1);
+            } else if(true) {
+                alert(9);
+            }
+            /*
+                : 최초에 선언된 if문이 false이고, 그 지역범위 밖에 선언된 if else문이 true이기 때문에 if else {} 안에 선언된 alert(3);이 출력된다.
+            */
+            if(false) {
+                alert(11);
+            } else if(false){
+                alert(12);
+            } else {
+                alert(13);
+            }
+            /*
+                : 두 번째 선언된 else if까지 false이기 때문에 마지막 else의 지역범위 내에 선언된 alert(13);이 출력된다.
+            */
+            /*
+                - if 와 else if 를 동시에 사용하는 이유는 같은 변수에 다른 조건을 대입해야하는 경우에 사용한다.
+                - else 는 부정의 의미로 모든 조건을 충족하지 않는 경우를 출력하게 되는 것이다.
+                - else 는 마지막에 단 한번 선언 할 수 있다.
+            */
+        </script>
+    </body>
+</html>

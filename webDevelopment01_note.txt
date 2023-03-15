@@ -1,0 +1,867 @@
+https://github.com/yonggyo1125
+이용교 :010 3481 2101
+MDN : https://developer.mozilla.org/ko/ : 참조 사이트
+
+js 수업,공부자료
+웹&앱개발 과정(저녁반) 웹표준-4일차
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="urf-8">
+        <title>css 연습</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+
+#2 css
+
+css 선택자
+syntax
+1)선택자
+	태그{프라퍼티:값} 
+	a {...}
+클래스 선택자 
+	.태그{선택자}
+	.class{...}
+아이디 선택자
+	:#아이디명{선택자}
+. html 태그에 스타일 속성으로 지정
+	:<styel></styel>
+
+css 적용 우선순위(구체성값) 공통적 > 구체적
+*(모든 요소)>태그(요소)>클래스(.)>아이디(#)>인라인 스타일 태그(<stlye></stlye>)
+
+우선순위 강제 적용
+!importnat
+	:우선 순위를 무시하고 가장 우선적으로 스타일을 적용시킨다.
+	:중복으로 선언됐을 때는 구체성값이 높은 순으로 적용된다.
+같은 클래스 css적용시 -> 가장 마지막에 선언한 스타일이 적용됨.
+
+2)조상자손 선택자
+syntax
+조상 자손 자손...{
+	property:value;
+}
+3)부모자식 선택자
+syntax
+조상>자손...{
+	property:value;
+}
+4)형제 선택자
+선택자~오른쪽 형제요소 {
+	프라퍼티:값;
+}
+4-1)인접형제 선택자
+선택자+선택자 {
+	프라퍼티:값;
+}
+5)그룹 선택자
+선택자, 선택자, 선택자... {
+	프라퍼티:값;
+}
+6)가상 클래스 선택자(pe-seudo class seletoers)
+	:순서,조건,상태 선택
+선택자:first-child{}
+선택자:last-child{}
+선택자:nth-child{}
+	-짝수(2n)(even)
+	-홀수(2n-1)(odd)
+ 	
+선택자:first-of-type{}:첫번째
+선택자:last-of-type{}:마지막
+선택자:nth-of-type(숫자or수식){}:원하는 순번,부모요소가 상관없다.
+
+선택자:not(제외할 선택자){}:제외할 선택자를 제외하고 선택(제외선택자)
+
+:link
+:visited
+:hover
+:active
+:checked{property:"...";} :checkbox,radio 선택되었을 때 상태를 바꾼다.
+:selected{property:"...";} :선택된 상태
+
+7)가상 요소 선택자(pe-seudo element selectors)
+	: 스크린 리더가 읽지않는 가짜요소
+선택자:before{content:"...";} :자식요소의 가장 앞에
+선택자:after{content:"...";} :자식요소의 가장 뒤에
+
+폰트
+1)사이즈
+	px :고정사이즈
+	em	:상대사이즈 :부모 태그의 폰트크기가 1em	
+	rem :기준사이즈 :가장 상위태크의 폰트크기가 1rem
+2)색상
+	색상명 :red, blue, orangered
+	RGB :rgb(0~255,0~255,0~255)
+	RGB+alpha :rgba(0~255,0~255,0~255.0~1)
+3)HEX code(16진수 코드)
+	#ff 00 00 ->#f00
+	#ff ff ff ->#fff
+	 R  G  B
+4)text-align :글 정렬
+	default value :start;
+	-left :왼쪽 정렬
+	-right :오른쪽 정렬
+	-center :중앙 정렬
+	-justify :양쪽 정렬
+	
+	line-height :행간
+				-기본값 1.2(20%->간격)
+				-비율(1~100%)
+				-고정사이즈 상대사이즈 가능
+	word-spacing :단어사이 간격조정
+	letter-spacing :문자사이 간격조정
+	
+	font-weight :normal
+				:bold
+				:100~900
+	font-family
+		font-family: 폰트명1, 폰트명2, 폰트명3, ...
+			:선언된 순서대로 적용됨.뒤에 오는 폰트는 대체폰트가 되므로 앞에 폰트가 없을 시 순서대로 적용된다.
+		font-family: '맑은 고딕', AppleGothic;
+			:맥은 맑은고딕이 없기 때문에 대체폰트스타일을 써줘야한다.
+			:폰트명에 띄어쓰기가 있으면 따옴표로 감싸줘야한다.
+			
+공간
+1)inline level
+	:줄바꿈이 없는 요소
+	:너비,높이가 기본값으로 지정되어있지 않다.
+	:span 으로 감싸서 스타일한다.
+2)block lever
+	:줄바꿈이 있는 요소
+	:너비와 높이가 기본값으로 지정되어있다.
+	:padding margin을 통해 레이아웃을 정할 수 있다.
+	:요소마다 padding margin의 기본값이 다르다.
+3)inline-block
+	:줄바꿈이 없는 요소
+	:너비와 높이가 기본값으로 지정되어있다.
+	:margin을 통해 상하를 조절할 수 있다.
+4)display property
+	: inline;
+	: block;
+	: inline-block;
+	: none; 감추기
+5)visibility
+	: visible;
+	: hidden; 감추지만 공간의 크기는 유지한다.
+
+레이아웃	
+1)box-sizing :...;
+	:기본값은 content사이즈의 width height.
+	: border-box; :경계의 크기에 맞춰서 조절된다.
+				  :content 크기가 작아진다.
+2)position
+	: static; :(기본값)고정위치에 배치
+	: relative; :본인요소기준, 적용되는 요소가 상대적으로 배치
+	: absolute; :문서전체기준, 상위태그에 상대배치 속성이 있다면 상위태그가 기준이 된다.
+	: fixed; :viewport기준
+	
+	top, bottom, left, right
+	left: 100px :왼쪽에서 오른쪽으로 100px이동
+		: -100px :오른쪽에서 왼쪽으로 100px이동
+	z-index :층위, 숫자가 커질수록 앞에 보이게 해준다.
+			:상대 프라퍼티를 선언한 후에 적용 가능하다.
+3)float
+	: left; :왼쪽으로 흐르듯이 배치
+	: right; :오른쪽으로 흐르듯이 배치
+	
+	:속성이 적용 안되는 시점에 반드시 속성을 지워야한다.
+	-> : clear;
+	:쓰고 나서 반드시 적용되지 않게 하려는 지점에서부터 속성을 지워줘야 한다.
+	:block level만 적용가능하다.
+4)border
+	border-width: 00px;
+	border-color: #fff;(ex)
+	border-style: solid;
+				: dashed;
+				: dotted;
+	: 단축(shorthand)로 두께-스타일-컬러 순서대로 작성해도 된다.
+	: 단축은 작성시에 순서상관이 없지만 스타일은 작성해야한다.
+	: 컬러를 작성하지 않으면 컨텐츠색상이 된다.
+	: 두께를 작성하지 않으면 폰트크기가 된다.
+	
+border-radius
+	: %와 px 모두 사용가능
+	: 50%는 원이 된다.
+	
+Media Query
+	@media all (max-width\min-width: 00px) {
+	selector {
+	property: value;
+	}
+	}
+
+Background
+	background-color
+	background-image
+		: url("image path");
+	background-repeat
+		: repeat-x; : 상하반복
+		: repeat-y; : 좌우반복
+		: no-repeat; :반복x
+	background-attachment
+	
+	background-position
+		: 좌우위치 상하위치;
+		: center center;
+	background-position
+		: 너비 높이; :% px 모두 가능
+		
+7)overflow
+	visible;(default value)
+	hidden;
+	auto;
+	scroll;
+	
+8)transition
+	transition-delay :전환 애니메이션 시작 대기
+	transition-duration :전환 애니메이션 지속 시간
+	transition-property
+	transition-timing-function
+
+9)transform
+	rotate(...deg);
+	
+10)flexbox
+	display: flex;
+	flex-direction :배치방향
+		: row; :왼쪽>오른쪽
+		: row-reverse; :오른쪽>왼쪽
+		: column; :위>아래
+		: column-reverse; :아래>위
+	
+	align-items :상하배치
+		: stretch; :기본값, 부모높이로 맞추기
+		: flex-start; 위
+		: center; 가운데
+		: flex-end; 밑
+
+	justify-content :좌우배치
+		: flex-start;
+		: center;
+		: flex-end;
+		: space-between;
+		: space-aronud;
+		: space-evenly;
+		
+	flex-grow :남아있는 공백을 비율별로 할당해서 채운다.
+		 : 비율 :할당비율/공백총량
+		
+11)
+
+
+
+#3주차 : javascript
+실습방법 
+	: 자바스크립트 엔진 : crome
+	콘솔창 사용법
+	줄개행 : shift+엔터 
+	
+기본문법
+변수 : 값을 담을 수 있는 공간(메모리)
+var 변수; 
+	: 숫자 number -> 숫자 : double, long : 숫자를 표현 방법 실수, 정수?
+	: 문자 string -> 문자 -> "값",'값'; : 둘 다 사용가능
+	
+var 변수명 = 값;
+
+연산자 : 연산에 사용되는 기호
+0) typeof
+1) 대입연산자 = equal
+	var a = value;
+	var a = num1 + num2;
+		: 변수 안에 변수를 연산한 값을 할당할 수 있다.
+		: 연산의 우선순위가 가장 낮다. 가장 마지막에 실행되는 연산자이다.
+2) 산술 연산자
+	항 : 연산에 사용되는 값
+	: 항의 개수에 따라 단항, 이항, 삼항으로 나뉜다.
+	+, -, /, *, %(나머지 연산자)
+	
+	(...) -> 가장 우선순위가 높은 연산자
+3) 부호 연산자(단항)
+	+, -
+	- : 부호반전
+		음수 -> 양수
+		양수 -> 음수
+4) 증가감소 연산자(단항)
+	++, -- : 1씩 증가 or 감소
+	a++;
+	a = a + 1;
+5) 비교 연산자
+	: >, <, >=, <=, ==(값), !=(==의 부정)
+	=== : 주소가 같은지 비교
+	!== : ===의 부정
+	: 연산의 결과 -> 참,거짓으로 출력(true,false:boolean)
+6) 논리 연산자
+	&& : and 연산자 : 교집합
+		-> 두 항이 모두 true일 때 true
+	|| : or 연산자 : 합집합
+		-> 두 항 중에서 한 개라도 true면 true
+	! : not 연산자 : 부정
+		-> true->false/ false->true
+	: 연산의 결과 -> 참(true),거짓(false)\
+	: 0 -> js에서 0은 false로 인식
+	/*
+	*간단한 조건식 활용
+	var result = 3
+	result>1 && alert('확인')
+		-> if 조건문을 활용하지 않고도 간단한 조건식으로 조건문을 실행시킬 수 있다.
+	*/
+7) 복합 대입 연산자
+	산술 + 대입 연산자 -> 단항 연산
+	a += 3; -> a = a + 3;
+8) 삼항 조건 연산자
+	(조건식)?반환값1:반환값2
+	: 조건식이 true일 때 반환값1, false일 때 반환값2를 반환한다.
+	/*
+	*연산자 우선순위
+	소괄호 (...)
+	..
+	단항
+	..
+	비교
+	논리
+	..
+	대입 =
+	*/
+
+주석(comment) : /**/(여러줄), //(한줄)
+: 인터프리터가 해석을 무시
+: 소스의 실행을 배제
+
+console(method)
+	.log
+	.dir
+	.error
+	.time
+	.timeEnd
+	
+javascript의 자료형
+	
+	원시타입 자료
+	-숫자형(number)
+	-문자형(string)
+	-논리형(boolean)
+	-undefined : 값을 지정하지 않은 상태
+	-null : 값이 비어있는 상태
+	
+	객체 자료
+	-원시타입 자료 이외에 모든 자료가 객체자료.
+	-함수, 배열 등은 존재하지 않고 실질적으로 모든 것이 객체로 이뤄진 함수객체,배열객체 등이다.
+	-즉, 객체 역시 하나의 값이다.
+	
+	**모든 변수와 함수(객체)는 window라는 객체 안에 계속해서 속성으로서 생성된다.**
+	
+hoisting 현상
+: 함수, var문 선언은 문서내에 순서가 아래에 위치해있더라도 위로 끌어올려져서 실행되는 현상
+: 코드를 전부 읽고 window 객체에 재구성하기 때문에 일어나는 현상이다.
+	
+조건문 
+	if(조건문){실행할 코드}
+
+선택문
+	var a = value;
+	switch(a)
+		case 1 : code1
+		break
+		case 2 : code2
+		break
+		...
+		default : code_end
+
+반복문
+1) 	초기값;
+	while(조건식){
+		조건식이 참일 때 반복실행되는 코드;
+		증감식;
+	}
+2) 	초기값;
+	do{
+		최소 1번 실행되고, while이 true일 때 반복실행될 코드;
+		증감식;
+	} while(조건식)
+			: do를 먼저 실행하고 while을 나중에 실행하는 형식이다.
+			: while이 false여서 반복실행이 되지 않더라도, 1번은 무조건 실행되게 할 때 사용한다.
+3)	fot(초기화식; 조건식; 증감식){
+		반복실행될 코드;
+	}
+	break : 반복 중단
+	continue : 반복중단 후 이어서 실행
+4)	중첩 반복문
+	: 변수명은 i j k l m n ... 으로 하는 것이 관례
+	: index iterate 를 의미하는 i부터 반복문 변수명 사용
+
+심벌
+	Symbol()
+		.for : 문자열과 연결된 Symbol을 생성해줌
+		.keyFor(변수명) : 문자열과 연결된 Symbol을 구현해줌
+		
+템플릿 리터럴
+	: ``(역따옴표)로 묶은 문자열.
+	: 줄 개행 등을 굳이 쓰지 않더라도 템플릿 리터럴 안에서 자동으로 실행시킨다.
+		\n new line : 줄 개행
+		\t 탭key
+		\b backspace : 뒤로 한 칸
+		\r 문장 첫 번째
+	: `이것은 ${변수명}입니다.` 으로 사용한다.
+
+!객체! 
+	특징/속성(변수)+행위(함수) 
+	-> 객체간의 상호작용을 통한 프로그램 
+		: 객체지향 프로그램
+		
+객체 리터럴
+{} : 객체
+		{
+		속석명 : 값,
+		속성명 : 값,
+		속성명 : 값,
+		...
+		}
+ex) 
+1. 
+var obj = {};
+typeof obj //obect 출력
+
+2.	
+var person = {
+name : `mike`
+age : 30
+}
+person.age // 30 출력
+
+참조변수.속성명 //값에 접근 가능
+참조변수['속성명']//값에 접근 가능 : 변수명을 가지고 있지 않는 값은 ['']를 사용해야함
+
+person -> 객체의 주소값만 가지고 있음 : 참조 변수
+		*참조 
+		: 객체는 다른 메모리에 두고 변수는 객체가 가진 주소에서 값만 출력한다.
+		: 변수는 객체의 주소값만 가지고 있는 것이다.
+		: 객체는 참조타입이다.
+		
+함수 객체
+function 함수명 (매개변수, 매배변수 ...){
+	//함수 실행 코드
+	 return 반환값;
+}
+
+function add(num1, num2){
+	var result = num1 + num2
+	return result
+	}
+	: num1 num2 result 는 함수지역내에서만 활성화된 변수.
+	: 함수가 실행될 때만 메모리 공간을 할당받는다.
+
+함수객체 -> 값
+함수의 매개변수, 반환값 -> 값
+	: 함수 안에 함수를 선언할 수 있다.
+	: 함수 안에 함수를 호출할 수도 있다.
+	: 함수 또한 객체이고 하나의 값이기 때문에 가능하다.
+	: 함수객체는 실행되는게 아니다.
+	: 함수객체를 재구성한 EC(execution context) 객체 생성->실행(스택)->제거
+	EC {
+	내부변수 - 원시값
+		- 참조값(객체)
+	외부 함수의 변수 참조
+	}
+	
+function outer(num1){
+	return function inner(num2){
+	var result = num1 + num2
+	return result;
+	}
+}
+var inner1 = outer(10); //ƒ inner(num2){
+							var result = num1 + num2
+							return result;
+							\}
+
+inner1(20); //30
+
+지역변수는 상대적인 개념
+-함수 안의 외부 변수 참조 (유효범위 체인)
+-변수가 현재 범위에 없으면 외부참조까지 이동
+-있으면 현재 범위 변수를 사용
+	
+-this 바인딩 : 함수를 호출한 객체
+-일반 정의 함수의 this는 window 객체이다.
+	
+익명함수 : 함수명이 없는 함수객체
+
+function outer(num1){}
+outer(funciton(num1){} -> 위아래는 같은 의미
+	
+지역범위
+	var
+	: 유효범위 : 함수 범위 내
+	let, const
+	: 같은 변수 선언이 불가능
+	: 유효범위 {...}  block scope
+		let : 변수
+		const : 상수
+
+const person = {
+    name : `dlfma`,
+    age : 40,
+	};
+
+	`name` in person //true
+			: 객체 내에 ``안에 있는 속성이 있는지 확인
+			
+for(const key in person){
+    console.log(key,person[key])}
+// name dlfma
+// age 40
+	: for문과 in의 활용
+
+가변길이 인수 목록
+argument 지역변수(es5.ver)
+가변매개변수 : ...변수명 (es6.ver)
+
+함수 리터럴
+const add = function(num1, num2){
+	return num1+num2}
+	: 함수 객체를 add 에 대입하는 리터럴 방식은 함수 호출시 무조건 변수선언 후에 호출해야 실행된다.
+	
+객체의 메서드	
+함수가 객체에 정의되면 명칭을 메서드라고 한다.
+	= 객체 내부에 있는 함수를 메서드라고 한다.
+
+즉시 실행 함수
+(function(){
+    console.log(`즉시 실행!`)
+})(); //즉시 실행! 출력
+
+(function(num1, num2){
+    return num1 + num2
+})(10,20); // 30 출력
+
+const result = (function(num1, num2){
+    return num1 + num2
+})(10,20); //result에 반환값으로 정의가능
+
+#4주차
+함수는 값이기 때문에 매개변수와 반환값으로도 사용가능하다.
+단축된 함수명
+
+화살표 함수
+	: 효용: 매개변수로서 쓸 때 최대한 짧게 쓰기위해 사용하는 것
+	
+function add(num1, num2){
+    return num1 + num2;
+	}
+const add3 = (x, y) => x+y;
+	: 위아래는 같은 의미이지만 기능적으로는 차이가 있다. 
+	: this의 범위도 다르다.
+
+const add = (x) => console.log(x);
+const add = x => console.log(x);
+	: 인자가 하나라면 괄호를 생략해도 상관없다.
+	
+함수객체
+1. 매개변수, 반환값으로 함수 사용
+2. 함수 객체 -> 객체를 생성
+
+상속
+객체간의 상속
+	: 프로토타입 체인을 연결
+	: 모든 객체는 [[prototypep]] : 객체간의 상속 관계
+	: __proto__
+	: 프로토타입 연결고리만 바꿔주면 상속된 객체가 만들어짐
+	
+const a ={a : 1, b : 2}
+>undefined
+const b = {c : 3, d : 4}
+>undefined
+b.__proto__=a;
+>{a: 1, b: 2}
+	: 체인을 바꿔주면 상속을 바꿀 수 있다.
+	: 프로토타입을 대입해주면 상속을 바꿀 수 있다.
+
+생성자
+모든 객체는 생성자 객체로 만들어진다
+{} 는 new Object와 의미가 같다.
+
+new 함수 호출
+function person() {
+    this.name = "이름";
+    this.age = 40;
+}
+undefined
+	: 현재 this는 값이 없음
+undefined
+const p1 = new person();
+undefined
+p1;
+person {name: '이름', age: 40}
+
+생성자 함수 객체 -> 객체 생성 : 상속
+function 생성자 함수 객체 -> 상속 -> 일반함수
+
+	: 위에 과정을 세분화하면 밑과 같다.
+
+function person() {
+    this.name = "이름";
+    this.age = 40;
+}
+>undefined
+const p1 = {}
+>undefined
+p1.__proto__ =person.prototype
+p1
+>person {}
+person.apply(p1);
+>undefined
+p1
+>person {name: '이름', age: 40}
+	: 상속하기 위해서는 person()에 직접하면 안되고, 함수 내에 있는 속성인 protype에 상속해야한다.
+	: person.prototype 에 꼭 상속해야함
+	: .apply();는 속성을 호출하는 내장함수
+	: row610에서 이미 상속은 완료된 상태
+	: 일반객체.__proto__=생성자함수객체.prototype -> 상속
+	
+	//예제
+function Person(name, age){
+    this.name = name
+    this.age = age;
+}
+>undefined
+const p1 = {}
+>undefined
+p1.__proto__ = Person.prototype;
+>{constructor: ƒ}
+Person.apply(p1, ["이름", 40]);
+>undefined
+p1
+>person {name : '이름', age : 40}
+
+
+new 생성자의 효용
+function Person(name, age){
+    this.name = name
+    this.age = age;
+    this.showInfo = function() {
+        console.log(name. age);
+    };
+}
+
+>undefined
+const p1 = new Person("이름1", 40)
+>undefined
+p1
+>Person {name: '이름1', age: 40, showInfo: ƒ}
+p1.age
+>40function Person(name, age){
+    this.name = name
+    this.age = age;
+    this.showInfo = function() {
+        console.log(name. age);
+    };
+}
+
+>undefined
+const p1 = new Person("이름1", 40)
+>undefined
+p1
+>Person {name: '이름1', age: 40, showInfo: ƒ}
+p1.age
+>40
+	: 함수를 호출한 객체가 this. 정의한 변수가 된다.
+	: [[prototye]]은 현재 객체에 상속된 체인, 상속된 객체를 뜻한다.
+		: 변수로는 .__proto__를 의미한다.
+	: >prototype 이 있는 [함수객체]만 상속이 가능하다.
+		: 화살표 함수는 constructor 속성이 없기 때문에 상속을 할 수 없다.
+	: 위에 속성 안에 constructor가 함수원형을 참조하는 변수
+		: 변수의 값을 호출하고, this의 범위를 초기화하는 역할을 한다.
+		
+배열(객체)
+array 생성자 함수 객체 -> 객체
+	: 같은 자료이자 연속된 메모리 공간에 할당된 데이터
+	: 인덱스 연산자를 통해 접근가능하다. ...[0]
+	: 속성명 : 숫자
+	: length 속성 : 요소(원소)의 개수
+	: array.prototype을 상속한다
+	
+const fruits = new Array ("사과", "오렌지", "바나나", "멜론");
+>undefined
+fruits;
+>(4) ['사과', '오렌지', '바나나', '멜론']
+0: "사과"
+1: "오렌지"
+2: "바나나"
+3: "멜론"
+length: 4
+[[Prototype]]: Array(0)
+	: 배열 생성자 함수 객체[[prototype]]으로 만들어졌다.
+
+배열 array 기본문법	
+const fruits = ["사과", "오렌지", "바나나", "멜론"]
+undefined
+fruits[1]
+'오렌지'
+fruits[1] = "(수정)오렌지"
+'(수정)오렌지'
+fruits;
+(4) ['사과', '(수정)오렌지', '바나나', '멜론']
+fruits[4] = '망고'
+'망고'
+fruits;
+(5) ['사과', '(수정)오렌지', '바나나', '멜론', '망고']
+delete fruits[3]
+true
+fruits
+(5) ['사과', '(수정)오렌지', '바나나', empty, '망고']
+fruits[10]
+undefined
+fruits[10]='1'
+'1'
+fruits;
+(11) ['사과', '(수정)오렌지', '바나나', empty, '망고', empty × 5, '1']
+	
+array 메서드	
+const fruits = ["사과"]
+undefined
+fruits.push("멜론","바나나")
+3
+fruits.pop();
+'바나나'
+fruits
+(2) ['사과', '멜론']
+fruits.unshift("포도", "딸기")
+4
+fruits
+(4) ['포도', '딸기', '사과', '멜론']
+fruits.shift();
+'포도'
+fruits
+(3) ['딸기', '사과', '멜론']	
+	: 추가 : .push()
+	: 앞에 추가 : .unshift()
+	: 끝에 있는 요소 삭제 : .pop()
+	: 앞에 있는 요소 제거 : .shift()
+	: 중간 요소 추가, 삭제 . .splice()
+		: object.splice(start, deleteCounting,[0,1,...])
+			: ...은 가변매개변수
+			
+			
+Symbol.iterator 정의 객체
+
+const a = [1,2,3,4]
+undefined
+const iter = a[Symbol.iterator]();
+undefined
+while(true){
+    const data = iter.next();
+    if (data.done){
+        break;
+    }
+    console.log(data.value)
+}
+1
+2
+3
+4	
+	: 위와 아래는 같다
+	
+const a = [1,2,3,4]
+undefined
+for(const num of a){
+    console.log(num)
+}
+1
+2
+3
+4
+
+
+내장객체
+	ECMAScript - Core
+		내장생성자
+			Number
+				isNaN(Not a Number) : 숫자가 아닌지 체크
+					: const num = "123"
+						isNaN(num); 은 true
+					: isNaN(...) 에 대입된 값이 숫자이면 참이 되기 때문이다.
+				parselnt : 문자 형식인 숫자 -> 실제 정수
+				parseFloat : 문자 형식인 실수 -> 실제 실수
+		내장객체
+			JSON(JavaScript Object Notation)
+				.parse : 문자열 형식의 JSON을 실 자바스크립트 객체로 변환
+				.stringify : 자바스크립트 객체 -> JSON형식의 문자열로 변환
+			MATH : 수학관련 기능 모음 객체
+				abs() : 절대값
+				sign() : 부호, 음수(-1),0,양수(1)
+				round(...) : 반올림
+				ceil(...) : 올림
+				floor(...) : 버림
+						
+	호스트객체 - 현재 실행환경에 특화되어 있는 객체
+			브라우저에 특화되어있는 객체, Node에는 없다
+		window - 가장 상위 객체
+		location - 주소와 관련된 객체
+			hash : 검색을 위한 키워드 : #id 속성명
+			assign() : 주소 이동
+				- 페이지 이동 기록을 저장
+				- href 속성도 동일
+			replace() : 주소 이동
+				- 페이지 이동 기록을 저장하지 않는다
+				- 주소만 대체한다
+			reload() : 새로 고침
+		history - 방문기록과 관련된 객체
+			lenght : 방문 페이지 개수
+			scrollRestoration
+				- auto(default) : 스크롤 위치 기억
+				- manual : 스크롤 위치 기억x
+			[[prototype]]
+				- back() : 한 단계 뒤로 가기
+				- forward() : 한 단계 앞으로 가기
+				- go(num) : num/-num만큼 앞/뒤로 가기
+		screen - 화면 정보
+			orietation
+				type : 가로/세로 설정
+		navigator - 브라우저가 운영되는 환경 정보
+		document - 문서를 위한 객체
+			대상을 선택하는 메서드
+				태그 요소로 선택 
+					.getElementsByTagName 
+				클래스명으로 선택
+					.getElementsByClassName
+				아이디명으로 선택
+					.getElementById
+				name속성명으로 선택
+					.getElementsByName
+				css선택자로 선택
+					.querySelector("CSS selectoer") : 최상위 1개 선택
+					.querySelectorAll("CSS selectoer") : 전부 선택
+
+웹 브라우저 객체
+서버 -> 응답(html text-문자열) -> 브라우저 객체로 변환 -> html, div -> document객체 변환
+
+변환완료 -> DOMContentLoaded 이벤트 발생 -> 이미지, 외부 css, 외부 js, iframe, video 자원이 로드완료 -> load 이벤트 발생
+
+Document 객체생성
+	: 검색 효율성을 위채서 배치 (이진 트리)
+	: DOM tree
+	
+이벤트 처리
+	document 객체의 속성명에 있다.
+이벤트 리스너
+	addEventListener("이벤트명", 이벤트 핸들러 함수 객체, useCapture)
+	이벤트 전파 방향
+		useCapture 
+		false :  기본값 : 이벤트 전파가 버블링단계에서 실행
+		true :  이벤트 전파 캡쳐링 단계에서 실행
+이벤트 객체
+	이벤트 발생한 요소의 정보
+	target : 실제 클릭한 요소
+	currentTarget : 이벤트가 바인딩되어 있는 요소
+	preventDefault() : 기본동작 방지 
+	stopPropagation() : 이벤트 전파 중지
+
+이벤트 전파
+
+이벤트 리스너 안의 this
+ currentTarget과 동일한 참조 값

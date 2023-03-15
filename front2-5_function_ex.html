@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        *예제 : function 과 if 문의 활용
+        1) grade 라는 함수 생성
+        score가 90이상이면 A반환
+        score가 80이상이면 B반환
+        score가 70이상이면 C반환
+        score가 60이상이면 D반환
+        그 밖에 나머지 score는 F
+        2) grade 함수 호출
+        테스트 코드에서는 50점을 넣었을 때 결과값을 출력해본다.
+        */
+       
+        function grade(score){
+            if(score>=90){return 'A'}
+            else if(score>=80){return 'B'}
+            else if(score>=70){return 'C'}
+            else if(score>=60){return 'D'}
+            else return 'F' //else {return 'F'} : 한 줄을 실행 할 때는 괄호쓰지않고도 가능하다. 단, 여러 줄을 실행할 때는 괄호를 써야한다.
+        }
+        let result = grade(60) // function call;
+        console.log(result)
+        document.write(`<p> ${grade(60)} </p>`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [1,2,3,4,5]
+        const result = arr.map((n)=>{return n*3})
+        console.log(result)
+
+        // map ex01 - n값이 제곱이 되는 데이터들의 배열을 생성해보자!
+        const arr1 = [1,2,3,4,5,6,7,8]
+        const squared = arr1.map(key => key*key)
+        // .map() 안에 함수는 화살표 함수로 위의 코드를 간략화시켰다.
+        console.log(squared)
+        
+        // map은 기존의 배열을 이용해서 새로운 배열을 만들어낸다. 각 index에 새로운 value가 재가공된다.
+
+
+        
+        // map ex02 - 객체를 활용한 배열의 map
+        const words = [
+            {
+                id: 1, 
+                text: 'hi'
+            } ,
+            {
+                id: 2,
+                text: 'good-bye'
+            }
+        ]
+        const texts = words.map(word=>word.text+word.id)
+        console.log(texts);
+
+        // words.map(parameter=>code)
+        // 여기서 파라미터 word는 words안에 있는 하나 하나의 객체명을 의미하게 된다.
+        // words라는 배열 안에 하나 하나의 데이터를 담고 있는 것이 word가 되고, word는 객체이므로 키값에 접근하기 위해서는 .text와 .id로 접근하게 된다.
+
+
+
+        // map ex03 - map( value, index, array)
+        const numbers = [5,6,7]
+        numbers.map((num,index,array) => {console.log(num*3,index,array)})
+        numbers.map((num,index,array) => {console.log(index)})
+        
+        const customMap = (array, func) =>{
+            const result = [];
+            // 해석1. result라는 이름의 배열을 정의해둠.
+            for(let i= 0; i<array.length; i++){
+                // 해석2. for 조건에 맞는 실행코드를 실행시킬 예정이다.
+                result.push(func(array[i], i, array)) //func()
+                // 해석3. i가 array.length보다 적을 때까지(false가 될 때까지) 해당코드를 실행시킨다.
+            }
+            return result;
+            // 해석4. 이 함수는 최종적으로 함수내에 있는 result를 반환시킨다.
+        }
+        customMap(
+            numbers,(number, i, array)=>{console.log(number*2,i,array)}
+        )
+        // 해석5. customMap function 호출
+        //  numbers와 (number, i, array)는 인자
+
+
+
+        // map ex04 - find 함수
+        let todos = [
+            {id : 1,
+            text : '자바스크립트 map 공부하기',
+            done : true
+            },
+            {id : 2,
+            text : '자바스크립트 filter 공부하기',
+            done : false
+            },
+            {id : 3,
+            text : '자바스크립트 reduce 공부하기',
+            done : true
+            },
+            {id : 4,
+            text : '자바스크립트 공부하기',
+            done : true
+            },
+            {id : 5,
+            text : '자바 공부하기',
+            done : false
+            }
+        ]
+        let index = todos.findIndex(todo => todo.id===3)
+        // 'todos에서 todo인자로 받은 키 중 id값이 3인 인덱스를 찾아라'는 의미
+        
+        // todo는 각 객체 {id:~, text:~, done:~} 를 받는 중이고, .id .text .done을 통해 각 키 값에 접근할 수 있다.
+        console.log(index)
+
+        let todo = todos.find(todo => todo.id===3)
+        // 'todos에서 todo인자로 받은 키 중 id값이 3인 데이터(현재는 배열 중 하나이므로 원소를 의미)를 찾아라'는 의미
+        
+        // 현재 화살표 함수로 들어간 인자 todo는 임의의 매개변수명을 작명한 것이므로 위의 코드와 받고있는 데이트가 같다.
+        console.log(todo)
+
+        let todo2 = todos.find(todo => todo.done===true)
+        // 가장 처음 발견하는 데이터만 출력?
+        console.log(todo2)
+
+        const tasksDone = todos.filter(todo => todo.done)
+        // 키값이 true인 데이터만 출력
+        console.log(tasksDone)
+
+        const tasksNotDone = todos.filter(todo =>! todo.done)
+        // const tasksNotDone = todos.filter(todo => todo.done===false)와 같다.
+        // 키 값이 false인 데이터만 출력
+        console.log(tasksNotDone)
+
+    </script>
+</body>
+</html>

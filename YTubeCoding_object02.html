@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체지향 프로그래밍</title>
+</head>
+<body>
+    <script>
+        let grades = {
+            'person' : {'age' : 10, 'name' : 'mike'},
+            'personA' : { 'ageA' : 12, 'nameA' : 'nana'},
+            'showF' : function(){
+                for(key in this.personA){
+                    document.write(`${key} ${this.personA[key]}<br>`)
+                }
+                // this binding : function을 실행하는 object를 directing
+                document.write(`<h1>${grades['person']['name']}</h1>`)
+                // tamplete lteral 사용
+                alert(grades.person.age)
+            }
+        }
+       grades.showF();
+    </script>
+</body>
+</html>

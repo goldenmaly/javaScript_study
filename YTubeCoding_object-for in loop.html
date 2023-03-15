@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체와 반복문의 조우</title>
+</head>
+<body>
+    <ul>
+        <li>egoing</li>
+        <li>k9112</li>
+        <li>sorialgi</li>
+    </ul>
+    <script>
+        let person = { 'egoing' : 10, 'k9112' : 6, 'sorialgi' : '알수없음!'};
+        for(key in person){
+            document.write(`<ul><li style=border:2px solid red;> key : ${key} <br> value : ${person[key]} </li></ul>`);
+        }
+    </script>
+</body>
+</html>

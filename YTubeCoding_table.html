@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>table</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+            <table border="2" style="background-color: gold;">
+                <!--
+                    tr tablerow
+                    th tablehead
+                    td tabledata
+                -->
+            <thead>
+                <tr>
+                    <th >과목</th>
+                    <th>국어</th>
+                    <th>영어</th>
+                    <th>수학</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">점수</td>
+                    <td>90</td>
+                    <td>30</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <!-- 
+                        - rowspan class의 value는 차지할 행의 치수를 뜻함.
+                        - 기본값은 : 1
+                        - colspan class는 열
+
+                        <td>점수</td> 
+                        - 이전에 선언한 td와 같은 위치에 rowspan="2"를 선언했기 때문에 지움.
+                    -->
+                    <td>90</td>
+                    <td>30</td>
+                    <td>80</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" align="center">합계</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

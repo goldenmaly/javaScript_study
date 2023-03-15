@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩if문</title>
+</head>
+<body>
+    <script>
+        let id = 'mado'
+        let pw = '1234'
+        let inputId = prompt('아이디')
+        let inputPw = prompt("패스워드")  
+        if(inputId==id){
+            if(inputPw==pw){
+                alert(id+'님 환영합니다.')
+            }
+            else{
+                alert('비밀번호가 틀렸습니다.')
+            }
+            location.reload()
+        } else {
+            alert('아이디가 틀렸습니다.')
+            location.reload()
+        }
+        /*
+            실행되는 우선순위를 파악해서 logic을 구축하는게 중요하다!
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bulgogiPizza = {
+            topping : 'beef',
+            price : 25000,
+            'pizza brand' : '59pizza'
+        }
+
+        const bulgogiPizza2 = {
+            topping2 : 'beef',
+            price2 : 25000,
+            'pizza brand2' : '59pizza'
+        }
+
+        const seafoodPizza = {
+            topping : 'shrimp',
+            price : 30000,
+            'pizza brand' : 'Mr.pizza'
+        }
+
+        // 0. 일반 함수와 객체표현
+        function pizzaInfo(pizzaName) {
+            // 어떤 객체명이든 넣을 수 있도록 인자를 설정해둔 것이다.
+            const text = `이 피자 브랜드는 ${pizzaName['pizza brand']} 이고, 토핑은 ${pizzaName.topping}이고, 가격은 ${pizzaName.price}입니다.`
+            return text
+            // parameter는 객체명을 통해 호출할 예정이다. 
+        }
+        console.log(pizzaInfo(bulgogiPizza))
+        console.log(pizzaInfo(seafoodPizza))
+        
+        
+        // 1-1. 비구조화 할당 방식
+        // 선언된 객체의 속성 property key 에 인자를 할당한 후에 변수의 반복호출을 줄인다.
+        // es6(ecma6)문법, 객체 구조분해라고한다.
+        function pizzaInfo(pizzaName){
+            const {topping, price} = pizzaName;
+            // 한 줄 추가된 비구조화 할당 방식 
+
+            const text = `이 피자 브랜드는 ${['pizza brand']} 이고, 토핑은 ${topping}이고, 가격은 ${price}입니다.`;
+            return text
+            // 앞에 객체리터럴 사용시 pizzaName을 반복적으로 사용하지 않아도 된다.
+        }
+        console.log(pizzaInfo(bulgogiPizza))
+        console.log(pizzaInfo(seafoodPizza))
+
+
+        // 1-2. 비구조화 할당 방식
+        // 선언된 객체의 key를 parameter로 선언한다.
+        // 함수 내부에서 뿐아니라 선언된 객체의 속성을 이용해서 객체 자체에서도 구조 분해가 가능하다!
+        function pizzaInfo({topping, price}){
+            const text = `이 피자 브랜드는 ${['pizza brand']} 이고, 토핑은 ${topping}이고, 가격은 ${price}입니다.`;
+            return text
+        }
+        console.log(pizzaInfo(bulgogiPizza))
+        console.log(pizzaInfo(bulgogiPizza2))
+         // parameter로 정의된 key가 없는 객체는 호출시에 value가 undefined로 출력된다.
+        console.log(pizzaInfo(seafoodPizza))
+        
+    </script>
+</body>
+</html>

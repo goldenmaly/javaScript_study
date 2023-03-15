@@ -1,0 +1,24 @@
+								
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="urf-8">
+        <title>연습</title>
+    </head>
+    <body>
+       <script>
+            window.addEventListener("DOMContentLoaded", function(){
+                const button = document.getElementById("button");
+                button.onclick = function() {
+                    alert("click");
+                };
+                button.onclick = function() {
+                    alert("click2");
+                };
+                // 이전에 대입된 이벤트가 사라지는 현상발생
+                // 과도하게 사용하는건 권장하지 않음
+            });
+       </script> 
+       <button type="button" id="button">click</button>
+    </body>
+</html>

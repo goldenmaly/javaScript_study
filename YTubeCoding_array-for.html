@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열과 반복문의 조우</title>
+</head>
+<body>
+    <script>
+        function get_members(){
+            return ['egoing', 'k9112', 'variable', 'ㅁㅇㄹ'];
+        }
+        let members= get_members();
+        for(let i= 0; i< members.length; i++){
+            document.write(members[i]+"<p>p=block level</p>");
+        }
+        /*
+        변수.lenght : 배열의 총 수량을 나타낸다.
+        위 코드를 통해 함수 안에 정의된 배열의 수가 달라지더라도 undefined가 반환되지 않는다.
+        */
+    </script>
+</body>
+</html>

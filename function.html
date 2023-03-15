@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 function</title>
+</head>
+<body>
+    <script>
+        var card = { suit: '하트', rank: 'A'};
+            console.log(card.suit)
+            console.log(card['rank'])
+            card.value = 14
+            console.log(card)
+            delete card['rank'] //delete card.rank 와 같다.
+            console.log(card)
+        
+        // var p { x: 1.0, y: 2.0}
+        // var circle {
+        //     center : {x: 1.0, y: 2.0},
+        //     radius : 2.5 // 원의 중심과 반지름을 표현하는 객체
+        // }
+        
+        function bark(a, b){
+            var result = '멍멍'+ (a + b)
+            return result
+        }
+        
+        console.log(bark(3, 3))
+        
+        var a = 'global'
+        function f(x,y){
+            var z = 'local' 
+            return z
+            console.log(z)
+        }
+        // console.log(z)
+        console.log(a)
+        
+        function card1(suit, rank){
+            this.suit = 'black'
+            this.rank = 'a'
+        }
+        console.log(card1)
+        var card1 = new Card1("black","a")
+        console.log(card1)
+
+    </script>
+</body>
+</html>

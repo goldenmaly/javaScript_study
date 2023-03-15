@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forEach
+        let animals = ['tiger', 'rabbit', 'dog', 'monkey']
+        animals.forEach(animal => console.log(animal))
+
+        let num = [1,2,3]
+        let sum = 0;
+        num.forEach(output => { console.log(sum += output); } )
+        // parameter output는 값이 누적되서 순차적으로 출력된다.
+
+        let arr1 = [1,2,3]
+        let sum1 = arr1.reduce((accumulator, currentValue)=>accumulator+currentValue,0)
+        // 인수자리가 중요 첫번째 자리는 accumulator이고, 연산 후에 값이 누적된다.
+        // 1) accumulator 파라미터에 초기값 0이 우선 들어간다.
+        // 1-1) 마지막에 들어가는 initialValue는 초기값을 제공하지 않으면 배열 인덱스0 데이터를 사용한다.
+        // 2) currentValue 파라미터에 배열 데이터를 하나씩 받아준다.
+        //  즉, 1을 받아서 실행코드가 돌고, 다시 2,3 등 배열테이터를 하나씩 계속 받아줌
+        // (accumulator, currentValue) : (0,1) (1,2) (3,3)
+        console.log(sum1);
+
+        // ex01
+        let arr2 = [1,2,3,4]
+        let sum2 = arr2.reduce((accumulator, currentValue)=>accumulator+currentValue, 0)
+        console.log(sum2);
+        // 0+1 1+2 3+3 6+4
+
+        // ex02 : 위 코드와 같다
+        const arr = [1,2,3,4]
+        const initialValue = 0;
+        const sum3 = arr.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)
+        console.log(sum3)
+
+        // ex03 : numbers array data의 평균값 구하기
+        const numbers = [1,2,3,4,5]
+        const average = numbers.reduce(
+            (accumulator, currentValue, index, array)=> (accumulator + currentValue)/array.length, 0
+            )
+        console.log(average);
+        // 1.18752 출력 ?
+
+        const numbers1 = [1,2,3,4,5]
+        const average1 = numbers1.reduce(
+            (accumulator, current, index, array) =>
+            {
+                if(index===array.length-1){
+                    return (accumulator+current)/array.length
+                }
+                return accumulator+current;
+            }, 0 
+        )
+        console.log(average1);
+
+        
+        // reduce()함수예제 - 배열을 객체로 변경하기, 배열 안에 중복데이터 개수세기
+
+        const alphabets = ['a','a','a','a','b','c','c','d','e']
+        const counts = alphabets.reduce((accmltr, currentValue,index,array)=>    
+            {
+                if(accmltr[currentValue]){ //'a'라는 데이터가 있다면 실행
+                // if문 조건식의 syntax는 객체 key:value 호출방식
+                // .reduce() parameter initialValue를 object로 변경했기 때문에 해당 조건식을 사용한다.
+                 accmltr[currentValue] += 1 //accmltr[currentValue]=accmltr[currentValue]+1
+                }
+                else{
+                 accmltr[currentValue] = 1   
+                //  초기값 {}이 비어있기 때문에 최초 currentValue값은 else문이 실행되서 1이 체크된다.
+                // (accmltr,currentValue) - ( {} , a) 최초실행코드
+                // (accmltr,currentValue) - ( {a:1} , a)
+                // (accmltr,currentValue) - ( {a:2} , a) ...
+                }
+                return accmltr;
+            }, {}) // 초기값은 {}로 객체화한다. 테이터는 비어있는 상태!
+            console.log(counts);
+
+
+        // ex04 배열을 객체로 변경하기, 배열 안에 중복된 데이터 개수세기
+        const names = [ 'Messi', 'Messi', 'Son', 'Ronaldo', 'Ronaldo']
+        const sameNames = names.reduce((accmltr, current) => {
+            if(accmltr[current]){
+                accmltr[current]+=1
+            }
+            else{
+                accmltr[current]=1
+            }
+            return accmltr;
+            } ,{}
+        ) 
+        console.log(sameNames);
+
+        // ex05 
+        const fruits = [ 'apple', 'apple','pine','kiwi','kiwi']
+        const basket = fruits.reduce((accmltr, current)=>{
+            if(current in accmltr){
+                accmltr[current]++; 
+                // accmltr[current]+=1 과 동일하다. 1씩 카운트하려고 했기 때문에 해당 코드로 사용해도 무관하다.
+            }
+            else{
+                accmltr[current]=1;
+            }
+            return accmltr;
+        },{})
+        console.log(basket);
+    
+
+
+
+
+        
+
+        
+
+    </script>
+</body>
+</html>

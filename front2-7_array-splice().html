@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let rainbow = ['흰', '노', '초', '검']
+        rainbow.splice(0,1,'옐로우','블루')
+        console.log(rainbow)
+
+        rainbow.splice(0,0,'블랙','화이트',1)
+        console.log(rainbow)
+        // .splice(삭제시작할 인덱스, 시작지점부터 삭제할 인덱스 개수, 삭제한자리에서부터 추가할 원소, ...)
+        
+        rainbow.splice(0,3)
+        console.log(rainbow)
+        // 추가할 데이터를 선언하지 않으면 삭제만 할 수 있다.
+    </script>
+</body>
+</html>
